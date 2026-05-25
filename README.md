@@ -44,13 +44,48 @@ npm start
 
 ### Deploy on Laravel Forge (Next.js)
 
-1. Site type: **Next.js**
-2. Build: `npm ci && npm run build`
-3. Start: `npm run start` (uses `output: "standalone"` — smaller, faster cold starts)
-4. Node version: **20** or **22**
-5. Environment: `NODE_ENV=production`, `PORT=3000`
+**Important:** This repo includes `pnpm-lock.yaml` and `package-lock.json`. Use **one** package manager in your deploy script.
 
-**Performance notes:** Lenis smooth scroll and GSAP parallax are disabled on mobile/touch devices. Images use AVIF/WebP via `next/image`. First visit shows a short loader; mobile skips it.
+#### Recommended Forge deployment script
+
+Replace the install/build lines in your Forge deployment script with:
+
+```bash
+cd $FORGE_RELEASE_DIRECTORY
+
+export NODE_ENV=production
+export NEXT_TELEMETRY_DISABLED=1
+
+pnpm install --frozen-lockfile
+pnpm run build
+```
+
+**Or with npm:**
+
+```bash
+cd $FORGE_RELEASE_DIRECTORY
+
+export NODE_ENV=production
+export NEXT_TELEMETRY_DISABLED=1
+
+npm ci
+npm run build
+```
+
+#### Site settings
+
+1. Site type: **Next.js**
+2. Node version: **20** or **22**
+3. Environment: `NODE_ENV=production`, `PORT=3002` (match your PM2 port)
+4. PM2 start: `next start --hostname 0.0.0.0 --port 3002`
+
+#### If deploy times out (>10 min)
+
+- Do **not** retry blindly — push the latest code (includes `pnpm-lock.yaml`, `sharp`, faster production build).
+- Ensure Forge runs `pnpm install --frozen-lockfile` (not a fallback double install).
+- `sharp` must build for image optimization (configured in `package.json` → `pnpm.onlyBuiltDependencies`).
+
+**Performance notes:** Lenis smooth scroll and GSAP parallax are disabled on mobile/touch devices. Images use AVIF/WebP via `next/image`.
 
 ## Design System
 
