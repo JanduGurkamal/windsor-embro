@@ -5,6 +5,7 @@ import Link from "next/link";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const navLinks = [
   { href: "/shop", label: "Shop" },
@@ -50,7 +51,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           transition={{ duration: 0.35 }}
         >
           <div className="section-padding flex items-center justify-between py-5 pt-[max(1.25rem,env(safe-area-inset-top))]">
-            <span className="font-display text-lg font-semibold">Windsor.</span>
+            <BrandLogo size="menu" href="/" />
             <button
               type="button"
               onClick={onClose}

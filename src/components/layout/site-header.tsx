@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { useCartStore } from "@/store/cart";
 import { CartDrawer } from "@/components/layout/cart-drawer";
 import { MobileMenu } from "@/components/layout/mobile-menu";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const navLinks = [
   { href: "/shop", label: "Shop" },
@@ -59,13 +60,7 @@ export function SiteHeader() {
         )}
       >
         <div className="section-padding flex items-center justify-between">
-          <Link
-            href="/"
-            className="relative z-[1] font-display text-lg font-semibold tracking-tight sm:text-xl"
-            aria-label="Windsor Embro Home"
-          >
-            Windsor<span className="text-muted-foreground font-normal">.</span>
-          </Link>
+          <BrandLogo priority className="relative z-[1]" />
 
           <nav className="hidden items-center gap-10 md:flex" aria-label="Main">
             {navLinks.map((link) => (

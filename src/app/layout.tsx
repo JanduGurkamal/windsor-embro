@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     description: "Luxury embroidery streetwear — crafted to endure.",
     type: "website",
   },
+  icons: {
+    icon: [{ url: "/logo.png", type: "image/png" }],
+    apple: [{ url: "/logo.png", type: "image/png" }],
+    shortcut: "/logo.png",
+  },
 };
 
 export const viewport: Viewport = {

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Instagram, Mail } from "lucide-react";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const footerLinks = {
   Shop: [
@@ -25,9 +26,7 @@ export function SiteFooter() {
       <div className="section-padding section-py">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <Link href="/" className="font-display text-2xl font-semibold tracking-tight">
-              Windsor<span className="font-normal text-[#a8a29e]">.</span>
-            </Link>
+            <BrandLogo size="footer" />
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-[#a8a29e]">
               Precision embroidery for those who demand more. Crafted in small batches,
               designed to become heirlooms of streetwear.

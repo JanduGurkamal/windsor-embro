@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { BrandLogo } from "@/components/layout/brand-logo";
 
 const SESSION_KEY = "windsor-visited";
 
@@ -40,6 +41,7 @@ export function PageLoader() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-center"
           >
+            <BrandLogo size="loader" linked={false} priority className="mx-auto mb-6" />
             <p className="label-luxury mb-4 text-[#a8a29e]">Windsor Embro</p>
             <motion.h1
               className="font-display text-3xl font-semibold tracking-tight text-[#fafaf8] sm:text-4xl"
