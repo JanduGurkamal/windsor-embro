@@ -42,6 +42,16 @@ npm run build
 npm start
 ```
 
+### Deploy on Laravel Forge (Next.js)
+
+1. Site type: **Next.js**
+2. Build: `npm ci && npm run build`
+3. Start: `npm run start` (uses `output: "standalone"` — smaller, faster cold starts)
+4. Node version: **20** or **22**
+5. Environment: `NODE_ENV=production`, `PORT=3000`
+
+**Performance notes:** Lenis smooth scroll and GSAP parallax are disabled on mobile/touch devices. Images use AVIF/WebP via `next/image`. First visit shows a short loader; mobile skips it.
+
 ## Design System
 
 - **Palette:** Matte black `#0a0a0a`, cream `#fafaf8`, warm gold accent `#c4b5a0`

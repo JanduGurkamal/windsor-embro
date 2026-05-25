@@ -57,7 +57,7 @@ export function CustomPageClient() {
     <div className="pt-24 md:pt-28">
       <section className="relative min-h-[50vh] overflow-hidden bg-[#0a0a0a] text-[#fafaf8] section-padding flex items-end pb-16 pt-32">
         <Image
-          src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=70&auto=format"
           alt="Custom embroidery studio"
           fill
           className="object-cover opacity-40"

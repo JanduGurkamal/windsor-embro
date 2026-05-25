@@ -20,7 +20,7 @@ export function AboutPageClient() {
 
       <section className="relative h-[60vh] min-h-[360px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=70&auto=format"
           alt="Windsor Embro atelier"
           fill
           className="object-cover"
@@ -63,7 +63,7 @@ export function AboutPageClient() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-center">
           <div className="relative aspect-[4/5] overflow-hidden lg:col-span-5">
             <Image
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=640&q=70&auto=format"
               alt="Founder portrait"
               fill
               className="object-cover grayscale"

@@ -1,11 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { geistSans, geistMono, interTight } from "@/lib/fonts";
+import { geistSans, interTight } from "@/lib/fonts";
 import { AppProviders } from "@/providers/app-providers";
-import { SmoothScroll } from "@/components/motion/smooth-scroll";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { PageLoader } from "@/components/motion/page-loader";
-import { FloatingCta } from "@/components/layout/floating-cta";
+import { ClientShell } from "@/components/layout/client-shell";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -43,17 +39,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${interTight.variable}`}
+      className={`${geistSans.variable} ${interTight.variable}`}
     >
       <body className="min-h-screen overflow-x-hidden">
         <AppProviders>
-          <PageLoader />
-          <SmoothScroll>
-            <SiteHeader />
-            <main>{children}</main>
-            <SiteFooter />
-            <FloatingCta />
-          </SmoothScroll>
+          <ClientShell>{children}</ClientShell>
         </AppProviders>
       </body>
     </html>

@@ -1,11 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
-
-gsap.registerPlugin(ScrollTrigger);
 
 type TextRevealProps = {
   children: string;
@@ -26,29 +22,59 @@ export function TextReveal({
     const el = ref.current;
     if (!el) return;
 
-    const parts =
-      splitBy === "words"
-        ? children.split(" ").map((w) => `<span class="inline-block overflow-hidden"><span class="inline-block translate-y-full">${w}&nbsp;</span></span>`)
-        : children.split("").map((c) => `<span class="inline-block overflow-hidden"><span class="inline-block translate-y-full">${c === " " ? "&nbsp;" : c}</span></span>`);
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isCoarse = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    if (prefersReduced || isCoarse || window.innerWidth < 768) {
+      return;
+    }
 
-    el.innerHTML = parts.join("");
+    let killed = false;
 
-    const inner = el.querySelectorAll("span > span");
-    gsap.to(inner, {
-      y: 0,
-      duration: 1,
-      stagger: splitBy === "words" ? 0.04 : 0.02,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-    });
+    const run = async () => {
+      const { default: gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+      if (killed || !el) return;
+
+      const parts =
+        splitBy === "words"
+          ? children
+              .split(" ")
+              .map(
+                (w) =>
+                  `<span class="inline-block overflow-hidden"><span class="inline-block translate-y-full">${w}&nbsp;</span></span>`
+              )
+          : children
+              .split("")
+              .map(
+                (c) =>
+                  `<span class="inline-block overflow-hidden"><span class="inline-block translate-y-full">${c === " " ? "&nbsp;" : c}</span></span>`
+              );
+
+      el.innerHTML = parts.join("");
+
+      const inner = el.querySelectorAll("span > span");
+      gsap.to(inner, {
+        y: 0,
+        duration: 1,
+        stagger: splitBy === "words" ? 0.04 : 0.02,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+    };
+
+    run();
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === el) t.kill();
+      killed = true;
+      import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+        ScrollTrigger.getAll().forEach((t) => {
+          if (t.trigger === el) t.kill();
+        });
       });
     };
   }, [children, splitBy]);

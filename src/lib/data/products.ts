@@ -44,9 +44,9 @@ export const products: Product[] = [
       { name: "Ivory", hex: "#f5f5f0" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&q=80",
-      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=1200&q=80",
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=70&auto=format",
+      "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=70&auto=format",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=70&auto=format",
     ],
     featured: true,
     new: true,
@@ -71,8 +71,8 @@ export const products: Product[] = [
       { name: "Sand", hex: "#d6d3d1" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80",
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1200&q=80",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=70&auto=format",
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=70&auto=format",
     ],
     featured: true,
   },
@@ -94,8 +94,8 @@ export const products: Product[] = [
     sizes: ["S", "M", "L", "XL"],
     colors: [{ name: "Charcoal", hex: "#292524" }],
     images: [
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1200&q=80",
-      "https://images.unsplash.com/photo-1551028718-00167b16eac5?w=1200&q=80",
+      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&q=70&auto=format",
+      "https://images.unsplash.com/photo-1551028718-00167b16eac5?w=800&q=70&auto=format",
     ],
     featured: true,
   },
@@ -118,7 +118,7 @@ export const products: Product[] = [
       { name: "Navy", hex: "#1e293b" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1588850561407-ed78c282e809?w=1200&q=80",
+      "https://images.unsplash.com/photo-1588850561407-ed78c282e809?w=800&q=70&auto=format",
     ],
     new: true,
   },
@@ -141,7 +141,7 @@ export const products: Product[] = [
       { name: "Heather", hex: "#78716c" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&q=80",
+      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&q=70&auto=format",
     ],
   },
   {
@@ -159,7 +159,7 @@ export const products: Product[] = [
       { name: "Black", hex: "#0a0a0a" },
     ],
     images: [
-      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1200&q=80",
+      "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=70&auto=format",
     ],
   },
 ];

@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState, useCallback } from "react";
 import { Menu, ShoppingBag, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCartStore } from "@/store/cart";
 import { CartDrawer } from "@/components/layout/cart-drawer";
+import { MobileMenu } from "@/components/layout/mobile-menu";
 
 const navLinks = [
   { href: "/shop", label: "Shop" },
@@ -23,6 +23,9 @@ export function SiteHeader() {
   const totalItems = useCartStore((s) => s.totalItems());
   const setCartOpen = useCartStore((s) => s.setOpen);
 
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const toggleMenu = useCallback(() => setMenuOpen((open) => !open), []);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -30,12 +33,17 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    setMenuOpen(false);
+    closeMenu();
+  }, [pathname, closeMenu]);
+
+  useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+    document.body.style.touchAction = menuOpen ? "none" : "";
     return () => {
       document.body.style.overflow = "";
+      document.body.style.touchAction = "";
     };
-  }, [menuOpen, pathname]);
+  }, [menuOpen]);
 
   const isHome = pathname === "/";
 
@@ -43,8 +51,9 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled || !isHome
+          "fixed top-0 left-0 right-0 isolate transition-all duration-500",
+          menuOpen ? "z-[9999]" : "z-[100]",
+          scrolled || !isHome || menuOpen
             ? "glass-elegant border-b border-foreground/5 py-3"
             : "bg-transparent py-5 md:py-6"
         )}
@@ -52,7 +61,7 @@ export function SiteHeader() {
         <div className="section-padding flex items-center justify-between">
           <Link
             href="/"
-            className="font-display text-lg font-semibold tracking-tight sm:text-xl"
+            className="relative z-[1] font-display text-lg font-semibold tracking-tight sm:text-xl"
             aria-label="Windsor Embro Home"
           >
             Windsor<span className="text-muted-foreground font-normal">.</span>
@@ -75,11 +84,11 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="relative z-[1] flex items-center gap-3 sm:gap-4">
             <button
               type="button"
               onClick={() => setCartOpen(true)}
-              className="relative flex h-10 w-10 items-center justify-center transition-opacity hover:opacity-70"
+              className="relative flex h-11 w-11 cursor-pointer touch-manipulation items-center justify-center transition-opacity hover:opacity-70 active:opacity-50"
               aria-label={`Cart, ${totalItems} items`}
             >
               <ShoppingBag className="h-5 w-5" strokeWidth={1.5} />
@@ -91,67 +100,23 @@ export function SiteHeader() {
             </button>
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center md:hidden"
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
+              className="relative flex h-11 w-11 cursor-pointer touch-manipulation items-center justify-center md:hidden"
+              onClick={toggleMenu}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
             >
-              <Menu className="h-5 w-5" strokeWidth={1.5} />
+              {menuOpen ? (
+                <X className="h-5 w-5" strokeWidth={1.5} />
+              ) : (
+                <Menu className="h-5 w-5" strokeWidth={1.5} />
+              )}
             </button>
           </div>
         </div>
       </header>
 
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            className="fixed inset-0 z-[60] flex flex-col bg-[#0a0a0a] text-[#fafaf8] md:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className="section-padding flex items-center justify-between py-5">
-              <span className="font-display text-lg font-semibold">Windsor.</span>
-              <button
-                type="button"
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close menu"
-                className="flex h-10 w-10 items-center justify-center"
-              >
-                <X className="h-5 w-5" strokeWidth={1.5} />
-              </button>
-            </div>
-            <nav className="flex flex-1 flex-col justify-center gap-2 section-padding pb-24">
-              {[{ href: "/", label: "Home" }, ...navLinks].map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -24 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.06, duration: 0.5 }}
-                >
-                  <Link
-                    href={link.href}
-                    className="font-display block py-3 text-4xl font-semibold tracking-tight sm:text-5xl"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
-            <div className="section-padding pb-10">
-              <Link
-                href="/shop"
-                className="flex h-14 w-full items-center justify-center bg-[#fafaf8] text-sm font-medium uppercase tracking-[0.15em] text-[#0a0a0a]"
-                onClick={() => setMenuOpen(false)}
-              >
-                Shop Collection
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <MobileMenu open={menuOpen} onClose={closeMenu} />
 
       <CartDrawer />
     </>

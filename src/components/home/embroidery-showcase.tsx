@@ -5,17 +5,17 @@ import { Reveal, StaggerReveal, StaggerItem } from "@/components/motion/reveal";
 
 const shots = [
   {
-    src: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&q=80",
+    src: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=640&q=70&auto=format",
     title: "Thread density",
     desc: "12,000+ stitches per motif",
   },
   {
-    src: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=80",
+    src: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=640&q=70&auto=format",
     title: "Fabric integrity",
     desc: "Premium organic blends",
   },
   {
-    src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
+    src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=640&q=70&auto=format",
     title: "Finishing",
     desc: "Hand-trimmed, zero compromise",
   },
@@ -41,6 +41,7 @@ export function EmbroideryShowcase() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, 33vw"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">

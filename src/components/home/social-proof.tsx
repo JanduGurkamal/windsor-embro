@@ -4,12 +4,12 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 
 const socialImages = [
-  "https://images.unsplash.com/photo-1529139573326-2c4b3a246a38?w=600&q=80",
-  "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
-  "https://images.unsplash.com/photo-1469334031218-e42a55436061?w=600&q=80",
-  "https://images.unsplash.com/photo-1515886657613-9f3525f0cc69?w=600&q=80",
-  "https://images.unsplash.com/photo-1483985988350-763728e6675b?w=600&q=80",
-  "https://images.unsplash.com/photo-1496747611176-843222e1e14c?w=600&q=80",
+  "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=480&q=70&auto=format",
+  "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=480&q=70&auto=format",
+  "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=480&q=70&auto=format",
+  "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=480&q=70&auto=format",
+  "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=480&q=70&auto=format",
+  "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=480&q=70&auto=format",
 ];
 
 export function SocialProof() {

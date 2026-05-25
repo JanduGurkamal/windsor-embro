@@ -11,7 +11,7 @@ export function BrandStory() {
       <div className="grid lg:grid-cols-2">
         <div className="relative aspect-square lg:aspect-auto lg:min-h-[80vh]">
           <Image
-            src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80"
+            src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=70&auto=format"
             alt="Windsor Embro craftsmanship"
             fill
             className="object-cover"

@@ -11,7 +11,7 @@ export function HeroSection() {
     <section className="relative min-h-[100dvh] overflow-hidden bg-[#0a0a0a] text-[#fafaf8]">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1920&q=85"
+          src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1400&q=75"
           alt="Premium embroidered streetwear"
           fill
           priority
@@ -27,7 +27,7 @@ export function HeroSection() {
           className="label-luxury mb-6 text-[#c4b5a0]"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           Windsor, ON · Est. 2019
         </motion.p>
@@ -36,7 +36,7 @@ export function HeroSection() {
           className="heading-xl max-w-[14ch] text-[#fafaf8]"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
           Embroidery
           <br />
@@ -47,7 +47,7 @@ export function HeroSection() {
           className="mt-8 max-w-md text-sm leading-relaxed text-[#d6d3d1] sm:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
           Windsor Embro crafts luxury streetwear with obsessive stitch precision.
           Every piece is a statement of permanence.
@@ -57,7 +57,7 @@ export function HeroSection() {
           className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
         >
           <MagneticButton
             className="inline-flex h-14 items-center justify-center gap-2 bg-[#fafaf8] px-10 text-xs font-medium uppercase tracking-[0.2em] text-[#0a0a0a]"
