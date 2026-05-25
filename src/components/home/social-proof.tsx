@@ -17,7 +17,14 @@ export function SocialProof() {
     <section className="section-py overflow-hidden">
       <Reveal className="section-padding mb-10">
         <p className="label-luxury mb-4">Community</p>
-        <h2 className="heading-md">@windsorembro</h2>
+        <a
+          href="https://www.instagram.com/windsor.embro"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="heading-md link-underline inline-block"
+        >
+          @windsor.embro
+        </a>
       </Reveal>
 
       <div className="flex gap-3 overflow-x-auto no-scrollbar section-padding pb-2">

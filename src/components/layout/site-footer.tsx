@@ -34,7 +34,7 @@ export function SiteFooter() {
             </p>
             <div className="mt-8 flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/windsor.embro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center border border-[#fafaf8]/20 transition-colors hover:border-[#c4b5a0] hover:text-[#c4b5a0]"
