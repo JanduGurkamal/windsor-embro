@@ -260,10 +260,10 @@ export function CustomPageClient() {
                         <SelectValue placeholder="Select range" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="500">Under £500</SelectItem>
-                        <SelectItem value="2000">£500 – £2,000</SelectItem>
-                        <SelectItem value="5000">£2,000 – £5,000</SelectItem>
-                        <SelectItem value="5000+">£5,000+</SelectItem>
+                        <SelectItem value="800">Under $800</SelectItem>
+                        <SelectItem value="3500">$800 – $3,500</SelectItem>
+                        <SelectItem value="8500">$3,500 – $8,500</SelectItem>
+                        <SelectItem value="8500+">$8,500+</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

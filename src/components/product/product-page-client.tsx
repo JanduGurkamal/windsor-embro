@@ -213,7 +213,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
             <div className="flex gap-6 text-xs text-muted-foreground">
               <span className="flex items-center gap-2">
                 <Truck className="h-4 w-4" strokeWidth={1.5} />
-                Free UK shipping £150+
+                Free Canada shipping $250+
               </span>
               <span className="flex items-center gap-2">
                 <Shield className="h-4 w-4" strokeWidth={1.5} />
@@ -236,7 +236,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
             <AccordionItem value="delivery">
               <AccordionTrigger>Delivery & Returns</AccordionTrigger>
               <AccordionContent>
-                UK delivery 2–4 business days. International 5–10 days. Unworn items
+                Canada delivery 3–5 business days. US & international 7–14 days. Unworn items
                 with tags may be returned within 14 days. Custom pieces are final sale.
               </AccordionContent>
             </AccordionItem>

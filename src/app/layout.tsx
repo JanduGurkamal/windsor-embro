@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Windsor Embro",
   },
   description:
-    "Premium embroidered streetwear crafted in London. Luxury hoodies, outerwear, and bespoke embroidery services.",
+    "Premium embroidered streetwear crafted in Canada. Luxury hoodies, outerwear, and bespoke embroidery services.",
   keywords: [
     "luxury streetwear",
     "embroidery",

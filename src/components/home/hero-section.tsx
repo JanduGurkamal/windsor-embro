@@ -29,7 +29,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          London · Est. 2019
+          Windsor, ON · Est. 2019
         </motion.p>
 
         <motion.h1

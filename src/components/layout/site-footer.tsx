@@ -76,7 +76,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} Windsor Embro. All rights reserved.
           </p>
           <p className="text-xs text-[#78716c]">
-            Crafted with intention · London, UK
+            Crafted with intention · Windsor, Canada
           </p>
         </div>
       </div>

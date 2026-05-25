@@ -32,7 +32,7 @@ export function BrandStory() {
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-md text-sm leading-relaxed text-[#a8a29e] sm:text-base">
               Windsor Embro was born from a refusal to accept disposable fashion.
-              We merge London street culture with atelier-level embroidery — each
+              We merge Canadian street culture with atelier-level embroidery — each
               garment engineered to age beautifully, not deteriorate.
             </p>
             <Link

@@ -6,7 +6,7 @@ import { Reveal } from "@/components/motion/reveal";
 const testimonials = [
   {
     quote:
-      "The embroidery density is unlike anything I've owned. This feels like a £500 piece.",
+      "The embroidery density is unlike anything I've owned. This feels like a $900 piece.",
     author: "James R.",
     role: "Creative Director",
   },

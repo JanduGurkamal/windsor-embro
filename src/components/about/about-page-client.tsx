@@ -33,12 +33,12 @@ export function AboutPageClient() {
       <section className="section-padding section-py">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <TextReveal as="h2" className="heading-md" splitBy="words">
-            Born in London. Built for the world.
+            Born in Canada. Built for the world.
           </TextReveal>
           <Reveal delay={0.2}>
             <div className="space-y-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
               <p>
-                Windsor Embro began in a small East London studio with a single industrial
+                Windsor Embro began in a small Windsor, Ontario studio with a single industrial
                 embroidery head and a refusal to accept mediocrity. What started as custom
                 work for local creatives evolved into a full luxury streetwear house.
               </p>
@@ -94,7 +94,7 @@ export function AboutPageClient() {
               { value: "2019", label: "Founded" },
               { value: "50K+", label: "Pieces crafted" },
               { value: "12", label: "Master stitchers" },
-              { value: "100%", label: "UK atelier" },
+              { value: "100%", label: "Canadian atelier" },
             ].map((stat) => (
               <div key={stat.label} className="border-t border-foreground/10 pt-6">
                 <p className="font-display text-3xl sm:text-4xl font-semibold">{stat.value}</p>

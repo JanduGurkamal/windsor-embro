@@ -21,8 +21,8 @@ const faqs = [
     a: "Standard custom runs require 4–6 weeks from approved sample. Rush timelines available for an additional fee.",
   },
   {
-    q: "Do you offer international shipping?",
-    a: "Yes. We ship worldwide via tracked courier. Duties and taxes may apply depending on your region.",
+    q: "Do you ship across Canada and internationally?",
+    a: "Yes. Free shipping on Canadian orders over $250. We also ship to the US and worldwide via tracked courier — duties and taxes may apply outside Canada.",
   },
   {
     q: "What is your return policy?",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Can I visit the studio?",
-    a: "Studio visits are by appointment only. Contact us to schedule a consultation in our East London atelier.",
+    a: "Studio visits are by appointment only. Contact us to schedule a consultation at our Windsor, Ontario atelier.",
   },
   {
     q: "What file formats do you accept for custom artwork?",
@@ -56,8 +56,8 @@ export function ContactPageClient() {
             <div className="space-y-8">
               {[
                 { icon: Mail, label: "Email", value: "studio@windsorembro.com" },
-                { icon: MapPin, label: "Studio", value: "Shoreditch, London E1" },
-                { icon: Clock, label: "Hours", value: "Mon–Fri, 10:00–18:00 GMT" },
+                { icon: MapPin, label: "Studio", value: "Downtown Windsor, ON N9A" },
+                { icon: Clock, label: "Hours", value: "Mon–Fri, 10:00–18:00 EST" },
               ].map((item) => (
                 <div key={item.label} className="flex gap-4">
                   <item.icon className="h-5 w-5 mt-0.5 text-muted-foreground" strokeWidth={1.5} />

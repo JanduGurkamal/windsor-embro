@@ -26,7 +26,7 @@ export const products: Product[] = [
     id: "1",
     slug: "monarch-crew-embroidery",
     name: "Monarch Crew Embroidery",
-    price: 185,
+    price: 325,
     category: "hoodies",
     tag: "Signature",
     description:
@@ -55,7 +55,7 @@ export const products: Product[] = [
     id: "2",
     slug: "atelier-oversized-tee",
     name: "Atelier Oversized Tee",
-    price: 95,
+    price: 165,
     category: "tees",
     tag: "Core",
     description:
@@ -80,7 +80,7 @@ export const products: Product[] = [
     id: "3",
     slug: "heritage-wool-bomber",
     name: "Heritage Wool Bomber",
-    price: 420,
+    price: 735,
     category: "outerwear",
     tag: "Limited",
     description:
@@ -103,7 +103,7 @@ export const products: Product[] = [
     id: "4",
     slug: "crown-structured-cap",
     name: "Crown Structured Cap",
-    price: 68,
+    price: 120,
     category: "caps",
     description:
       "Six-panel structured cap with 3D puff embroidery and adjustable antique brass buckle.",
@@ -126,7 +126,7 @@ export const products: Product[] = [
     id: "5",
     slug: "studio-zip-hoodie",
     name: "Studio Zip Hoodie",
-    price: 210,
+    price: 365,
     category: "hoodies",
     description:
       "Full-zip heavyweight hoodie with dual placement embroidery and kangaroo utility pocket.",
@@ -148,7 +148,7 @@ export const products: Product[] = [
     id: "6",
     slug: "essentials-rib-tank",
     name: "Essentials Rib Tank",
-    price: 58,
+    price: 100,
     category: "essentials",
     description:
       "Fine rib cotton tank with micro Windsor crest — layering essential.",
