@@ -44,46 +44,30 @@ npm start
 
 ### Deploy on Laravel Forge (Next.js)
 
-**Important:** This repo includes `pnpm-lock.yaml` and `package-lock.json`. Use **one** package manager in your deploy script.
+**SIGKILL during build?** That is almost always **out of memory** on a small VPS. Use the full script in `forge-deploy.sh` and push the latest code (sets `FORGE_LOW_MEMORY=1`).
 
-#### Recommended Forge deployment script
+Copy the entire contents of **`forge-deploy.sh`** into Forge → Site → Deployment Script.
 
-Replace the install/build lines in your Forge deployment script with:
+Key build env vars (already in that script):
 
 ```bash
-cd $FORGE_RELEASE_DIRECTORY
-
-export NODE_ENV=production
-export NEXT_TELEMETRY_DISABLED=1
-
+export FORGE_LOW_MEMORY=1
+export NODE_OPTIONS="--max-old-space-size=1536"
 pnpm install --frozen-lockfile
-pnpm run build
-```
-
-**Or with npm:**
-
-```bash
-cd $FORGE_RELEASE_DIRECTORY
-
-export NODE_ENV=production
-export NEXT_TELEMETRY_DISABLED=1
-
-npm ci
-npm run build
+pnpm run build:forge
 ```
 
 #### Site settings
 
 1. Site type: **Next.js**
 2. Node version: **20** or **22**
-3. Environment: `NODE_ENV=production`, `PORT=3002` (match your PM2 port)
-4. PM2 start: `next start --hostname 0.0.0.0 --port 3002`
+3. Environment: `NODE_ENV=production`, `PORT=3002`
+4. PM2: `next start --hostname 0.0.0.0 --port 3002` (1 instance, fork mode)
 
-#### If deploy times out (>10 min)
+#### If build still fails with SIGKILL
 
-- Do **not** retry blindly — push the latest code (includes `pnpm-lock.yaml`, `sharp`, faster production build).
-- Ensure Forge runs `pnpm install --frozen-lockfile` (not a fallback double install).
-- `sharp` must build for image optimization (configured in `package.json` → `pnpm.onlyBuiltDependencies`).
+- Upgrade server to **2GB+ RAM**, or add **2GB swap** on the droplet.
+- On 4GB+ servers, set `NODE_OPTIONS="--max-old-space-size=3072"` and remove `FORGE_LOW_MEMORY=1` to re-enable `standalone` output.
 
 **Performance notes:** Lenis smooth scroll and GSAP parallax are disabled on mobile/touch devices. Images use AVIF/WebP via `next/image`.
 
