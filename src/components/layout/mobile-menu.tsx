@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
 import { BrandLogo } from "@/components/layout/brand-logo";
 
 const navLinks = [
   { href: "/shop", label: "Shop" },
-  { href: "/custom", label: "Custom" },
-  { href: "/about", label: "About" },
+  { href: "/custom", label: "Atelier" },
+  { href: "/about", label: "Story" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -44,48 +44,65 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           role="dialog"
           aria-modal="true"
           aria-label="Navigation menu"
-          className="fixed inset-0 z-[9998] flex flex-col bg-[#0a0a0a] text-[#fafaf8] md:hidden"
+          className="fixed inset-0 z-[9998] flex flex-col overflow-hidden bg-[#080808] text-[#fafaf8] lg:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="section-padding flex items-center justify-between py-5 pt-[max(1.25rem,env(safe-area-inset-top))]">
+          <div className="absolute inset-0">
+            <Image
+              src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=70&auto=format"
+              alt=""
+              fill
+              className="object-cover opacity-30"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-[#080808]/85" />
+          </div>
+
+          <div className="relative z-10 flex items-center justify-between section-padding py-6 pt-[max(1.5rem,env(safe-area-inset-top))]">
             <BrandLogo size="menu" href="/" />
             <button
               type="button"
               onClick={onClose}
-              aria-label="Close menu"
-              className="flex h-11 w-11 touch-manipulation cursor-pointer items-center justify-center"
+              className="label-editorial text-[#c4b5a0]"
             >
-              <X className="h-5 w-5" strokeWidth={1.5} />
+              Close
             </button>
           </div>
-          <nav className="flex flex-1 flex-col justify-center gap-2 section-padding pb-24">
+
+          <nav className="relative z-10 flex flex-1 flex-col justify-center section-padding">
             {[{ href: "/", label: "Home" }, ...navLinks].map((link, i) => (
               <motion.div
                 key={link.href}
-                initial={{ opacity: 0, x: -16 }}
+                initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.05 + i * 0.05, duration: 0.4 }}
+                transition={{ delay: 0.08 + i * 0.07, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Link
                   href={link.href}
-                  className="font-display block py-3 text-4xl font-semibold tracking-tight sm:text-5xl touch-manipulation"
                   onClick={onClose}
+                  className="group flex items-baseline gap-4 border-b border-[#fafaf8]/10 py-5"
                 >
-                  {link.label}
+                  <span className="label-editorial text-[#78716c]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-[clamp(2.5rem,10vw,4rem)] font-semibold uppercase tracking-tight transition-colors group-active:text-[#c4b5a0]">
+                    {link.label}
+                  </span>
                 </Link>
               </motion.div>
             ))}
           </nav>
-          <div className="section-padding pb-[max(2.5rem,env(safe-area-inset-bottom))]">
+
+          <div className="relative z-10 section-padding pb-[max(2rem,env(safe-area-inset-bottom))]">
             <Link
               href="/shop"
-              className="flex h-14 w-full touch-manipulation items-center justify-center bg-[#fafaf8] text-sm font-medium uppercase tracking-[0.15em] text-[#0a0a0a]"
               onClick={onClose}
+              className="btn-luxury-primary flex w-full"
             >
-              Shop Collection
+              Enter Collection
             </Link>
           </div>
         </motion.div>

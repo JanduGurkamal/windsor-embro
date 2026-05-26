@@ -3,10 +3,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const sizes = {
-  header: "h-9 w-9 sm:h-10 sm:w-10",
-  footer: "h-11 w-11 sm:h-12 sm:w-12",
-  menu: "h-10 w-10",
-  loader: "h-14 w-14 sm:h-16 sm:w-16",
+  header: "h-10 w-10 sm:h-11 sm:w-11",
+  footer: "h-12 w-12 sm:h-14 sm:w-14",
+  menu: "h-11 w-11",
+  loader: "h-16 w-16 sm:h-20 sm:w-20",
 } as const;
 
 type BrandLogoProps = {

@@ -39,18 +39,29 @@ export function ShopPageClient() {
   }, [category, sort]);
 
   return (
-    <div className="pt-24 md:pt-28">
-      <section className="section-padding pb-12 md:pb-16">
-        <Reveal>
-          <p className="label-luxury mb-4">Collection</p>
-          <h1 className="heading-lg">Shop</h1>
-          <p className="mt-4 max-w-lg text-sm text-muted-foreground leading-relaxed">
-            Precision-embroidered streetwear. Small batches. No compromises.
-          </p>
-        </Reveal>
+    <div className="bg-[#f4f1ec] fabric-texture">
+      <section className="relative min-h-[50vh] overflow-hidden bg-[#080808] pt-28 text-[#fafaf8] md:pt-36">
+        <Image
+          src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1400&q=80&auto=format"
+          alt=""
+          fill
+          className="object-cover opacity-40"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/60 to-[#080808]" />
+        <div className="relative z-10 flex min-h-[40vh] flex-col justify-end section-padding pb-16">
+          <Reveal>
+            <p className="label-editorial text-[#c4b5a0]">Collection</p>
+            <h1 className="mt-6 display-editorial">
+              <span className="block">All</span>
+              <span className="block text-stroke-gold font-light italic normal-case">pieces</span>
+            </h1>
+          </Reveal>
+        </div>
       </section>
 
-      <div className="sticky top-[52px] z-30 glass-elegant border-y border-foreground/5 section-padding py-4">
+      <div className="sticky top-0 z-30 glass-elegant border-y border-foreground/10 section-padding py-5">
         <div className="flex items-center justify-between gap-4">
           <div className="hidden gap-2 overflow-x-auto no-scrollbar md:flex">
             {categories.map((cat) => (
@@ -99,13 +110,14 @@ export function ShopPageClient() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:grid-cols-3 xl:grid-cols-4"
+            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
           >
             {filtered.map((product, i) => (
               <ProductCard
                 key={product.id}
                 product={product}
                 index={i}
+                variant="editorial"
                 onQuickView={setQuickView}
               />
             ))}

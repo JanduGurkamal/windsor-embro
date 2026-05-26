@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { FloatingCta } from "@/components/layout/floating-cta";
+import { FilmGrain } from "@/components/editorial/film-grain";
 
 const SmoothScroll = dynamic(
   () =>
@@ -25,6 +26,7 @@ export function ClientShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <PageLoader />
+      <FilmGrain />
       <SmoothScroll>
         <SiteHeader />
         <main>{children}</main>

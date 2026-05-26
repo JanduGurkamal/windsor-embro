@@ -1,51 +1,54 @@
 "use client";
 
-import { Reveal, StaggerReveal, StaggerItem } from "@/components/motion/reveal";
+import { StaggerReveal, StaggerItem } from "@/components/motion/reveal";
+import { Marquee } from "@/components/editorial/marquee";
 
 const steps = [
-  {
-    num: "01",
-    title: "Design",
-    desc: "Every motif is digitized by hand — no auto-tracing, no shortcuts.",
-  },
-  {
-    num: "02",
-    title: "Sample",
-    desc: "Physical samples on your exact fabric before production begins.",
-  },
-  {
-    num: "03",
-    title: "Stitch",
-    desc: "Multi-head machines calibrated for tension, density, and durability.",
-  },
-  {
-    num: "04",
-    title: "Finish",
-    desc: "Hand-trimmed backing, steamed, pressed, and quality inspected.",
-  },
+  { num: "01", title: "Design", desc: "Hand-digitized motifs" },
+  { num: "02", title: "Sample", desc: "Physical proof on your fabric" },
+  { num: "03", title: "Stitch", desc: "Multi-head precision" },
+  { num: "04", title: "Finish", desc: "Hand-trimmed & inspected" },
 ];
 
 export function ProcessSection() {
   return (
-    <section className="luxury-gradient-dark section-padding section-py text-[#fafaf8]">
-      <Reveal>
-        <p className="label-luxury mb-4 text-[#c4b5a0]">Process</p>
-        <h2 className="heading-lg max-w-xl">From thread to heirloom.</h2>
-      </Reveal>
+    <section className="relative bg-[#080808] text-[#fafaf8] overflow-hidden">
+      <Marquee
+        dark
+        className="border-none"
+        items={["Design", "Sample", "Stitch", "Finish", "Windsor Atelier"]}
+      />
+      <div className="section-padding section-py-tight">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <h2 className="display-section max-w-lg">
+            From thread
+            <span className="block text-[#c4b5a0]">to heirloom</span>
+          </h2>
+          <p className="max-w-xs text-[10px] uppercase leading-relaxed tracking-[0.25em] text-[#78716c]">
+            Four stages. Zero shortcuts.
+          </p>
+        </div>
 
-      <StaggerReveal className="mt-16 grid gap-px bg-[#fafaf8]/10 sm:grid-cols-2 lg:grid-cols-4">
-        {steps.map((step) => (
-          <StaggerItem key={step.num}>
-            <div className="bg-[#141414] p-8 sm:p-10 h-full">
-              <span className="font-display text-4xl font-light text-[#c4b5a0]/40">
-                {step.num}
-              </span>
-              <h3 className="mt-6 font-display text-xl font-semibold">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#a8a29e]">{step.desc}</p>
-            </div>
-          </StaggerItem>
-        ))}
-      </StaggerReveal>
+        <StaggerReveal className="mt-16 grid gap-px bg-[#fafaf8]/10 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step) => (
+            <StaggerItem key={step.num}>
+              <div className="group relative bg-[#0e0e0e] p-8 transition-colors duration-500 hover:bg-[#141414] md:p-10 md:min-h-[280px] flex flex-col justify-between">
+                <span className="font-display text-[clamp(3rem,8vw,5rem)] font-light leading-none text-[#fafaf8]/10 transition-colors group-hover:text-[#c4b5a0]/30">
+                  {step.num}
+                </span>
+                <div>
+                  <h3 className="font-display text-2xl font-semibold tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 text-xs uppercase tracking-[0.2em] text-[#78716c]">
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerReveal>
+      </div>
     </section>
   );
 }

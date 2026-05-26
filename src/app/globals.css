@@ -23,7 +23,6 @@
   --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-display: var(--font-inter-tight);
-  --font-mono: var(--font-geist-mono);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -31,51 +30,31 @@
 }
 
 :root {
-  --radius: 0.25rem;
-  --background: #fafaf8;
+  --radius: 0;
+  --background: #f4f1ec;
   --foreground: #0a0a0a;
-  --card: #ffffff;
+  --card: #fafaf8;
   --card-foreground: #0a0a0a;
-  --popover: #ffffff;
+  --popover: #fafaf8;
   --popover-foreground: #0a0a0a;
   --primary: #0a0a0a;
   --primary-foreground: #fafaf8;
-  --secondary: #f0eeeb;
+  --secondary: #e8e4de;
   --secondary-foreground: #1c1917;
-  --muted: #e7e5e0;
-  --muted-foreground: #78716c;
+  --muted: #d6d0c8;
+  --muted-foreground: #6b6560;
   --accent: #c4b5a0;
   --accent-foreground: #0a0a0a;
   --destructive: #991b1b;
-  --border: #e7e5e0;
-  --input: #e7e5e0;
+  --border: #d6d0c8;
+  --input: #d6d0c8;
   --ring: #a8a29e;
-  --luxury-black: #0a0a0a;
-  --luxury-charcoal: #1c1917;
+  --luxury-black: #080808;
+  --luxury-charcoal: #141414;
   --luxury-stone: #a8a29e;
-  --luxury-cream: #fafaf8;
+  --luxury-cream: #f4f1ec;
   --luxury-gold: #c4b5a0;
-  --luxury-silver: #d6d3d1;
-}
-
-.dark {
-  --background: #0a0a0a;
-  --foreground: #fafaf8;
-  --card: #141414;
-  --card-foreground: #fafaf8;
-  --popover: #141414;
-  --popover-foreground: #fafaf8;
-  --primary: #fafaf8;
-  --primary-foreground: #0a0a0a;
-  --secondary: #1c1917;
-  --secondary-foreground: #fafaf8;
-  --muted: #292524;
-  --muted-foreground: #a8a29e;
-  --accent: #c4b5a0;
-  --accent-foreground: #0a0a0a;
-  --border: #292524;
-  --input: #292524;
-  --ring: #78716c;
+  --luxury-ember: #d97706;
 }
 
 @layer base {
@@ -107,6 +86,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-geist-sans), system-ui, sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   ::selection {
@@ -118,69 +98,115 @@
 @layer utilities {
   .font-display {
     font-family: var(--font-inter-tight), var(--font-geist-sans), system-ui, sans-serif;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
   }
 
   .text-balance {
     text-wrap: balance;
   }
 
+  /* Editorial typography scale */
+  .display-hero {
+    @apply font-display font-semibold uppercase leading-[0.85] tracking-[-0.05em];
+    font-size: clamp(3.5rem, 14vw, 11rem);
+  }
+
+  .display-editorial {
+    @apply font-display font-semibold leading-[0.9] tracking-[-0.04em];
+    font-size: clamp(2.75rem, 8vw, 6.5rem);
+  }
+
+  .display-section {
+    @apply font-display text-[clamp(2rem,6vw,5rem)] font-semibold leading-[0.92] tracking-[-0.03em];
+  }
+
+  .body-editorial {
+    @apply text-sm leading-[1.8] tracking-[0.01em] text-muted-foreground md:text-base md:leading-[1.85];
+  }
+
+  .label-editorial {
+    @apply text-[9px] font-medium uppercase tracking-[0.35em] md:text-[10px];
+  }
+
+  .heading-xl {
+    @apply font-display font-semibold uppercase leading-[0.85] tracking-[-0.05em];
+    font-size: clamp(3.5rem, 14vw, 11rem);
+  }
+
+  .heading-lg {
+    @apply font-display font-semibold leading-[0.92] tracking-[-0.03em];
+    font-size: clamp(2rem, 6vw, 5rem);
+  }
+
+  .heading-md {
+    @apply font-display text-[clamp(1.75rem,4vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.03em];
+  }
+
+  .label-luxury {
+    @apply text-[9px] font-medium uppercase tracking-[0.35em] text-muted-foreground md:text-[10px];
+  }
+
+  .text-stroke-gold {
+    color: transparent;
+    -webkit-text-stroke: 1px #c4b5a0;
+  }
+
+  /* Textures & atmosphere */
+  .film-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+  }
+
+  .fabric-texture {
+    background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h1v1H0zm2 2h1v1H2z' fill='%23000' fill-opacity='0.03'/%3E%3C/svg%3E");
+  }
+
   .luxury-gradient {
     background: linear-gradient(
-      135deg,
-      rgba(196, 181, 160, 0.12) 0%,
-      rgba(10, 10, 10, 0) 50%,
-      rgba(168, 162, 158, 0.08) 100%
+      120deg,
+      rgba(196, 181, 160, 0.15) 0%,
+      transparent 45%,
+      rgba(10, 10, 10, 0.4) 100%
     );
   }
 
   .luxury-gradient-dark {
-    background: linear-gradient(
-      180deg,
-      #0a0a0a 0%,
-      #141414 40%,
-      #1c1917 100%
-    );
+    background: linear-gradient(180deg, #080808 0%, #111 50%, #1a1816 100%);
+  }
+
+  .vignette {
+    box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.45);
   }
 
   .glass-elegant {
-    background: rgba(250, 250, 248, 0.72);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(244, 241, 236, 0.65);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
   }
 
   .glass-elegant-dark {
-    background: rgba(10, 10, 10, 0.75);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-  }
-
-  .mask-reveal {
-    clip-path: inset(0 0 0 0);
+    background: rgba(8, 8, 8, 0.55);
+    backdrop-filter: blur(28px) saturate(140%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
   }
 
   .section-padding {
-    @apply px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32;
+    @apply px-5 sm:px-8 md:px-14 lg:px-20 xl:px-28 2xl:px-36;
   }
 
   .section-py {
-    @apply py-16 sm:py-20 md:py-28 lg:py-36;
+    @apply py-20 sm:py-28 md:py-36 lg:py-44;
   }
 
-  .heading-xl {
-    @apply font-display text-[clamp(2.5rem,8vw,7rem)] font-semibold leading-[0.92] tracking-tight;
+  .section-py-tight {
+    @apply py-14 sm:py-20 md:py-28;
   }
 
-  .heading-lg {
-    @apply font-display text-[clamp(2rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-tight;
-  }
-
-  .heading-md {
-    @apply font-display text-[clamp(1.5rem,3vw,2.75rem)] font-semibold leading-tight tracking-tight;
-  }
-
-  .label-luxury {
-    @apply text-[10px] sm:text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground;
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
   }
 
   .link-underline {
@@ -189,11 +215,51 @@
 
   .link-underline::after {
     content: "";
-    @apply absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)];
+    @apply absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)];
   }
 
   .link-underline:hover::after {
     @apply origin-left scale-x-100;
+  }
+
+  .btn-luxury {
+    @apply inline-flex h-14 items-center justify-center gap-3 px-10 text-[10px] font-medium uppercase tracking-[0.28em] transition-all duration-500;
+  }
+
+  .btn-luxury-primary {
+    @apply inline-flex h-14 items-center justify-center gap-3 px-10 text-[10px] font-medium uppercase tracking-[0.28em] transition-all duration-500 bg-[#fafaf8] text-[#0a0a0a] hover:bg-[#c4b5a0];
+  }
+
+  .btn-luxury-ghost {
+    @apply inline-flex h-14 items-center justify-center gap-3 px-10 text-[10px] font-medium uppercase tracking-[0.28em] transition-all duration-500 border border-[#fafaf8]/25 text-[#fafaf8] hover:border-[#c4b5a0] hover:text-[#c4b5a0];
+  }
+
+  .image-mask-reveal {
+    clip-path: inset(100% 0 0 0);
+    animation: mask-reveal-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes mask-reveal-up {
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-slow {
+    animation: marquee 45s linear infinite;
+  }
+
+  .marquee-normal {
+    animation: marquee 28s linear infinite;
   }
 
   .no-scrollbar::-webkit-scrollbar {
